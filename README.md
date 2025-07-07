@@ -1,18 +1,90 @@
-Objective:
+# 📇 Contact Manager
+Aplicação web para cadastro e gerenciamento de contatos, desenvolvida em Laravel 11, com Tailwind CSS, Vite, Livewire e testes com PHPUnit.
 
-Back-end Assessment: [ ] Make all tests pass, applying the best practices of Laravel and SOLID and clean arch
 
-Front-end Assessment: [ ] Implement a front-end using Inertia.js, Vue3 and TailwindCss for contact CRUD
+### 🚀 Requisitos
+PHP 8.2+
 
-* Plus: Feel free to implement improvements and more features as you wish, such as sending an email to the contact when that contact is deleted from the system.
+Composer
 
-# Installation
-1. Clone the repository
-2. Have PHP 8.3 installed on your machine, composer 2, and activate the extensions requested by composer when running "composer install"
-3. Run "Composer install"
-4. Create a .env file and paste the contents of .env.example
-5. Run the command php artisan key:generate
-6. Run the command php artisan test, solve the tests
+Node.js (16+)
 
-7. After the test is complete, create a repository on github, and upload your resolution to the repository
-8. Send the repository link to WhatsApp +55 41 98702-5814
+NPM ou Yarn
+
+SQLite / MySQL / PostgreSQL
+
+
+### ⚙️ Instalação
+```bash
+# Clone o projeto
+git clone git@github.com:romulo2735/junior-backend-test.git
+cd seu-repo
+
+# Instale as dependências PHP
+composer install
+
+# Instale as dependências JS
+npm install
+
+# Copie e configure o .env
+cp .env.example .env
+php artisan key:generate
+```
+
+### 🧩 Configuração do banco de dados
+Edite o arquivo .env com suas configurações:
+```ini
+DB_CONNECTION=sqlite
+DB_DATABASE=./database/database.sqlite
+```
+
+Para SQLite, crie o arquivo vazio:
+```bash
+touch database/database.sqlite
+```
+
+### 🛠️ Migração e seeders
+```bash
+php artisan migrate --seed
+```
+
+### 💻 Executando o projeto
+```bash
+# Compile os assets
+npm run dev
+
+# Inicie o servidor Laravel
+php artisan serve
+```
+http://127.0.0.1:8000/contacts
+
+### 🧪 Testes
+```bash
+# Executar testes
+php artisan test
+
+# Rodar apenas Feature tests
+php artisan test --testsuite=Feature
+```
+
+- O projeto já possui testes para criar, editar, excluir e validar contatos.
+
+### 🧱 Estrutura do projeto
+```sql
+├── app/
+│   ├── Http/
+│   │   └── Controllers/Contacts/ (CRUD por controllers __invoke)
+│   ├── Models/Contact.php
+├── resources/
+│   └── views/
+│       └── contacts/
+│           ├── index.blade.php
+│           ├── create.blade.php
+│           ├── edit.blade.php
+│           └── form.blade.php
+├── routes/
+│   └── web.php
+├── tests/
+│   └── Feature/
+│       └── ContactsTest.php
+```
